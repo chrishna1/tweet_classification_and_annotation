@@ -18,11 +18,14 @@ with open('tweets.csv','w') as csvFile:
     #write header
     csvWriter.writerow(['S.no', 'tweetid', 'tweettext']) #writerow accepts a list of values.
 
-    df = pd.read_csv(file)
-        for serialNo,tweet in enumerate(json_data):
-            csvWriter.writerow([serialNo,tweet['id'],tweet['text']]) #writerow accepts a list of values.
+    
+    for serialNo,tweet in enumerate(json_data):
+        csvWriter.writerow([serialNo,tweet['id'],tweet['text']]) #writerow accepts a list of values.
 
             
 #reading csv
 tweets = pd.read_csv('tweets.csv')
+#for showing longer text and in one row.
+pd.set_option('display.max_columns', 500)
+pd.set_option('display.width', 1000)
 print(tweets.head(5))
