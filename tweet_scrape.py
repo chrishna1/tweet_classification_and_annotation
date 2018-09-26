@@ -26,7 +26,6 @@ with open('words.txt') as words, open('tweet.json','w+') as file:
   for word in words:
     for i,tweet in enumerate(tweepy.Cursor(api.search,q=word,count=100,
                                lang="en").items()):
-#         csvWriter.writerow([tweet.created_at, tweet])#.text.encode('utf-8')])
         array_json.extend(tweet._json)
         if i > 50:
           break
