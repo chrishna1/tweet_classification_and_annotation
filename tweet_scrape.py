@@ -22,20 +22,14 @@ api = tweepy.API(auth,wait_on_rate_limit=True)
 #Open(or create if there isn't any) tweet.json file
 
 with open('words.txt') as words, open('tweet.json','w+') as file:
+  array_json = [] #list that stores json object
   for word in words:
     for i,tweet in enumerate(tweepy.Cursor(api.search,q=word,count=100,
                                lang="en").items()):
 #         csvWriter.writerow([tweet.created_at, tweet])#.text.encode('utf-8')])
-        json.dump(tweet._json,file,sort_keys = True,indent = 4)
+        array_json.extend(tweet._json)
         if i > 50:
           break
-          
+  json.dump(array_json,file,sort_keys = True,indent = 4) #dumping the list into json file.        
 
 #Now we have a json file created.
-  
-  >>> with open('/home/insol/Downloads/tweet.json', 'r') as infile:
-...     data = infile.read()
-...     new_data = data.replace("}{" , "},{")
-...     json_data = json.loads('[{}]'.format(new_data))
-... 
->>> json_data
