@@ -27,7 +27,7 @@ with open('words.txt') as words, open('tweet.json','w+') as file:
   for word in words:
     for i,tweet in enumerate(tweepy.Cursor(api.search,q=word,count=100,
                                lang="en").items()):
-        array_json.extend(tweet._json)
+        array_json.append(tweet._json) # extend destroy the dict structure. so use append
         if i > 50:
           break
   json.dump(array_json,file,sort_keys = True,indent = 4) #dumping the list into json file.        
