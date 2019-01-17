@@ -7,10 +7,10 @@ import csv
 import pandas as pd
 
 ####input your credentials here
-consumer_key = 'IsxY71d4o6NG7d2ZeUCH6etxW'
-consumer_secret = 'jqNTCKO5PgZPH7mYp40fO5A392o6XOYzQXKVHtqO10xrTvJibw'
-access_token = '4789665606-JHGodJKTmbjHGSVlF5ZZzZAXmsSwQnbQrAjo6zj'
-access_token_secret = 'Hknc2PV2coSdcUQk1mbAGB3N2tH3PJgVxTd8qLQd9juVw'
+consumer_key = XXXXX
+consumer_secret = XXXX
+access_token = XXXX
+access_token_secret = XXXXX
 
 #Authentication
 auth = tweepy.OAuthHandler(consumer_key, consumer_secret)
